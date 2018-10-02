@@ -1,19 +1,29 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import classnames from "classnames";
 
 const StyledRow = styled.div`
   display: flex;
-  flex-direction: ${props => (props.reverse ? 'row-reverse' : 'row')};
+  flex-direction: row;
   flex-wrap: wrap;
   margin-left: -15px;
   margin-right: -15px;
+
+  &.__reversed {
+    flex-direction: row-reverse;
+  }
 `;
 
 const Row = props => {
-  const { children, ...rest } = props;
+  const { children, className, reverse, ...rest } = props;
+  const classes = classnames(reverse && "__reversed", className);
 
-  return <StyledRow {...rest}>{children}</StyledRow>;
+  return (
+    <StyledRow className={classes} {...rest}>
+      {children}
+    </StyledRow>
+  );
 };
 
 Row.propTypes = {
