@@ -1,9 +1,15 @@
-import Grid from './components/Grid/Grid';
-import Row from './components/Row/Row';
-import Col from './components/Col/Col';
+import React from "react";
+
+import Container from "./components/Container/Container";
+import Row from "./components/Row/Row";
+import Column from "./components/Column/Column";
+
+export { Container };
+export { Row };
+export { Column };
 
 export default {
-  Grid,
+  Container,
   Row,
-  Col
+  Column
 };
