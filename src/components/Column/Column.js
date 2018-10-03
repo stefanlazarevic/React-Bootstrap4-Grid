@@ -27,6 +27,10 @@ const ColumnBase = styled.div`
     padding-left: 0;
     padding-right: 0;
   }
+
+  &.__fixed {
+    flex: 0 0 auto;
+  }
 `;
 
 const StyledColumn = styled(ColumnBase)`
@@ -44,18 +48,19 @@ const StyledColumn = styled(ColumnBase)`
 const Column = props => {
   const {
     children,
-    reverse,
+    reversed,
     auto,
     noGutter,
-    width,
+    fixed,
     className,
     ...rest
   } = props;
 
   const classes = classnames(
-    reverse && "__reversed",
+    reversed && "__reversed",
     auto && "__auto",
     noGutter && "__noGutter",
+    fixed && "__fixed",
     className
   );
 
@@ -67,8 +72,9 @@ const Column = props => {
 };
 
 Column.propTypes = {
-  reverse: PropTypes.bool,
+  reversed: PropTypes.bool,
   noGutter: PropTypes.bool,
+  fixed: PropTypes.bool,
   xs: PropTypes.oneOf(["auto", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
   sm: PropTypes.oneOf(["auto", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
   md: PropTypes.oneOf(["auto", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),

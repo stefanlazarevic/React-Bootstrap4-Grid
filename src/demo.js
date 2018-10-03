@@ -59,7 +59,7 @@ const Index = props => {
         <Container>
           <Row>
             <Column>
-              <SectionTitle>Fixed Columns</SectionTitle>
+              <SectionTitle>12 Column Grid</SectionTitle>
             </Column>
           </Row>
           <Row>
@@ -183,6 +183,84 @@ const Index = props => {
             </Column>
             <Column xs="auto">
               <Box />
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Reversed Direction</SectionTitle>
+            </Column>
+          </Row>
+          <Row reversed>
+            <Column xs="auto">
+              <Box>1</Box>
+            </Column>
+            <Column xs="auto">
+              <Box>2</Box>
+            </Column>
+            <Column xs="auto">
+              <Box>3</Box>
+            </Column>
+            <Column xs="auto">
+              <Box>4</Box>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Column</SectionTitle>
+            </Column>
+          </Row>
+          <Row>
+            <Column xs="auto">
+              <Box>1</Box>
+              <Box>2</Box>
+              <Box>3</Box>
+              <Box>4</Box>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Reversed Column</SectionTitle>
+            </Column>
+          </Row>
+          <Row>
+            <Column reversed xs="auto">
+              <Box>1</Box>
+              <Box>2</Box>
+              <Box>3</Box>
+              <Box>4</Box>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Fixed Column Width</SectionTitle>
+            </Column>
+          </Row>
+          <Row>
+            <Column fixed style={{ width: 200 }}>
+              <Box>200px</Box>
+            </Column>
+            <Column xs="auto">
+              <Box>auto</Box>
             </Column>
           </Row>
         </Container>
