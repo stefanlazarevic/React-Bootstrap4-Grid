@@ -5,8 +5,8 @@ import styled from "styled-components";
 import media from "../../util/media";
 
 const ContainerFluid = styled.div`
+  box-sizing: border-box;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;

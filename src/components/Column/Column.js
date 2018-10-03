@@ -5,11 +5,12 @@ import classnames from "classnames";
 import media from "../../util/media";
 
 const width = base => `
-  flex: 0 1 ${(base / 12) * 100}%
+  flex: ${base === "auto" ? "1 1 auto" : `0 1 ${(base / 12) * 100}%`}
   max-width: ${(base / 12) * 100}%
 `;
 
 const ColumnBase = styled.div`
+  box-sizing: border-box;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -25,10 +26,6 @@ const ColumnBase = styled.div`
   &.__noGutter {
     padding-left: 0;
     padding-right: 0;
-  }
-
-  &.__auto {
-    flex: 0 1 auto;
   }
 `;
 
@@ -63,7 +60,7 @@ const Column = props => {
   );
 
   return (
-    <StyledColumn style={{ width }} className={classes} {...rest}>
+    <StyledColumn className={classes} {...rest}>
       {children}
     </StyledColumn>
   );
@@ -71,13 +68,12 @@ const Column = props => {
 
 Column.propTypes = {
   reverse: PropTypes.bool,
-  auto: PropTypes.bool,
   noGutter: PropTypes.bool,
-  xs: PropTypes.number,
-  sm: PropTypes.number,
-  md: PropTypes.number,
-  lg: PropTypes.number,
-  xlg: PropTypes.number,
+  xs: PropTypes.oneOf(["auto", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+  sm: PropTypes.oneOf(["auto", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+  md: PropTypes.oneOf(["auto", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+  lg: PropTypes.oneOf(["auto", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+  xlg: PropTypes.oneOf(["auto", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
   width: PropTypes.number,
   offset: PropTypes.number,
   smOffset: PropTypes.number,
