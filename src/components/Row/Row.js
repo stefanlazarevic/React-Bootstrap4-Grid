@@ -24,6 +24,10 @@ const BaseRowStyle = styled.div`
   flex-wrap: wrap;
   margin-left: -15px;
   margin-right: -15px;
+
+  &.__reversed {
+    flex-direction: row-reverse;
+  }
 `;
 
 const StyledRow = styled(BaseRowStyle)`
@@ -33,8 +37,8 @@ const StyledRow = styled(BaseRowStyle)`
 `;
 
 const Row = props => {
-  const { children, className, reverse, style, ...rest } = props;
-  const classes = classnames(reverse && '__reversed', className);
+  const { children, className, reverse, ...rest } = props;
+  const classes = classnames(reverse && "__reversed", className);
 
   return (
     <StyledRow className={classes} {...rest}>
