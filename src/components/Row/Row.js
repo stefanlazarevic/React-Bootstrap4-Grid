@@ -1,20 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import classnames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import classnames from "classnames";
 
 const justifyPropMap = {
-  start: 'flex-start',
-  center: 'center',
-  end: 'flex-end',
-  between: 'space-between',
-  around: 'space-around'
+  start: "flex-start",
+  center: "center",
+  end: "flex-end",
+  between: "space-between",
+  around: "space-around",
+  even: "space-evenly"
 };
 
 const alignPropMap = {
-  top: 'flex-start',
-  middle: 'center',
-  end: 'flex-end'
+  top: "flex-start",
+  middle: "center",
+  bottom: "flex-end",
+  stretch: "flex-stretch"
 };
 
 const BaseRowStyle = styled.div`
@@ -33,8 +35,8 @@ const StyledRow = styled(BaseRowStyle)`
 `;
 
 const Row = props => {
-  const { children, className, reverse, style, ...rest } = props;
-  const classes = classnames(reverse && '__reversed', className);
+  const { children, className, reverse, ...rest } = props;
+  const classes = classnames(reverse && "__reversed", className);
 
   return (
     <StyledRow className={classes} {...rest}>
@@ -45,8 +47,15 @@ const Row = props => {
 
 Row.propTypes = {
   reverse: PropTypes.bool,
-  justify: PropTypes.oneOf(['start', 'center', 'end', 'between', 'around']),
-  align: PropTypes.oneOf(['top', 'middle', 'bottom'])
+  justify: PropTypes.oneOf([
+    "start",
+    "center",
+    "end",
+    "between",
+    "around",
+    "even"
+  ]),
+  align: PropTypes.oneOf(["top", "middle", "bottom", "stretch"])
 };
 
 export default Row;

@@ -6,7 +6,7 @@ import media from "../../util/media";
 
 const width = base => `
   flex: ${base === "auto" ? "1 1 auto" : `0 1 ${(base / 12) * 100}%`}
-  max-width: ${(base / 12) * 100}%
+  max-width: ${base === "auto" ? 100 : (base / 12) * 100}%
 `;
 
 const ColumnBase = styled.div`
@@ -18,18 +18,21 @@ const ColumnBase = styled.div`
   max-width: 100%;
   padding-left: 15px;
   padding-right: 15px;
-
-  &.__reversed {
-    flex-direction: column-reverse;
-  }
-
-  &.__noGutter {
-    padding-left: 0;
-    padding-right: 0;
-  }
 `;
 
-const StyledColumn = styled(ColumnBase)`
+const ReversedColumn = styled(ColumnBase)`
+  ${({ reversed }) => reversed && "flex-direction: column-reverse;"}
+`;
+
+const FixedColumn = styled(ReversedColumn)`
+  ${({ fixed }) => fixed && "flex: 0 0 auto;"}
+`;
+
+const NoGutterColumn = styled(FixedColumn)`
+  ${({ noGutter }) => noGutter && `padding-left: 0; padding-right: 0;`}
+`;
+
+const MediaColumn = styled(NoGutterColumn)`
   ${({ xs }) => xs && width(xs)}
 
   ${({ sm }) => sm && media.mobileLandscape`${width(sm)}`}
@@ -42,33 +45,21 @@ const StyledColumn = styled(ColumnBase)`
 `;
 
 const Column = props => {
-  const {
-    children,
-    reverse,
-    auto,
-    noGutter,
-    width,
-    className,
-    ...rest
-  } = props;
+  const { children, className, ...rest } = props;
 
-  const classes = classnames(
-    reverse && "__reversed",
-    auto && "__auto",
-    noGutter && "__noGutter",
-    className
-  );
+  const classes = classnames(className);
 
   return (
-    <StyledColumn className={classes} {...rest}>
+    <MediaColumn className={classes} {...rest}>
       {children}
-    </StyledColumn>
+    </MediaColumn>
   );
 };
 
 Column.propTypes = {
-  reverse: PropTypes.bool,
+  reversed: PropTypes.bool,
   noGutter: PropTypes.bool,
+  fixed: PropTypes.bool,
   xs: PropTypes.oneOf(["auto", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
   sm: PropTypes.oneOf(["auto", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
   md: PropTypes.oneOf(["auto", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),

@@ -18,10 +18,24 @@ const Header = styled.div`
 
 const Section = styled.section`
   padding: 2rem 0;
+
+  [data-container] {
+    height: 200px;
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    [data-box] {
+      margin-bottom: 0;
+    }
+  }
+
   &:nth-child(odd) {
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
     background-color: #f5f5f5;
+
+    [data-container] {
+      background: #fff;
+    }
   }
 `;
 
@@ -38,6 +52,7 @@ const Box = styled.div`
   border-radius: 8px;
   padding: 0.2rem 1rem;
   font-size: 1rem;
+  height: 100%;
   &:empty {
     padding: 1rem;
   }
@@ -59,7 +74,7 @@ const Index = props => {
         <Container>
           <Row>
             <Column>
-              <SectionTitle>Fixed Columns</SectionTitle>
+              <SectionTitle>12 Column Grid</SectionTitle>
             </Column>
           </Row>
           <Row>
@@ -159,6 +174,7 @@ const Index = props => {
           </Row>
         </Container>
       </Section>
+
       <Section>
         <Container>
           <Row>
@@ -183,6 +199,318 @@ const Index = props => {
             </Column>
             <Column xs="auto">
               <Box />
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Gutter</SectionTitle>
+            </Column>
+          </Row>
+          <Row>
+            <Column noGutter xs={3}>
+              <Box>3</Box>
+            </Column>
+            <Column noGutter xs={3}>
+              <Box>3</Box>
+            </Column>
+            <Column noGutter xs={3}>
+              <Box>3</Box>
+            </Column>
+            <Column noGutter xs={3}>
+              <Box>3</Box>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Reversed Direction</SectionTitle>
+            </Column>
+          </Row>
+          <Row reversed>
+            <Column reversed noGutter xs="auto">
+              <Box>1</Box>
+            </Column>
+            <Column xs="auto">
+              <Box>2</Box>
+            </Column>
+            <Column xs="auto">
+              <Box>3</Box>
+            </Column>
+            <Column xs="auto">
+              <Box>4</Box>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Column</SectionTitle>
+            </Column>
+          </Row>
+          <Row>
+            <Column xs="auto">
+              <Box>1</Box>
+              <Box>2</Box>
+              <Box>3</Box>
+              <Box>4</Box>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Reversed Column</SectionTitle>
+            </Column>
+          </Row>
+          <Row>
+            <Column reversed xs="auto">
+              <Box>1</Box>
+              <Box>2</Box>
+              <Box>3</Box>
+              <Box>4</Box>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Fixed Column Width</SectionTitle>
+            </Column>
+          </Row>
+          <Row>
+            <Column fixed style={{ width: 200 }}>
+              <Box>200px</Box>
+            </Column>
+            <Column xs="auto">
+              <Box>auto</Box>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Horizontal Alignment - Start</SectionTitle>
+            </Column>
+          </Row>
+          <Row justify="start">
+            <Column xs={2}>
+              <Box>2</Box>
+            </Column>
+            <Column xs={1}>
+              <Box>1</Box>
+            </Column>
+            <Column xs={4}>
+              <Box>4</Box>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Horizontal Alignment - center</SectionTitle>
+            </Column>
+          </Row>
+          <Row justify="center">
+            <Column xs={2}>
+              <Box>2</Box>
+            </Column>
+            <Column xs={1}>
+              <Box>1</Box>
+            </Column>
+            <Column xs={4}>
+              <Box>4</Box>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Horizontal Alignment - end</SectionTitle>
+            </Column>
+          </Row>
+          <Row justify="end">
+            <Column xs={2}>
+              <Box>2</Box>
+            </Column>
+            <Column xs={1}>
+              <Box>1</Box>
+            </Column>
+            <Column xs={4}>
+              <Box>4</Box>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Horizontal Alignment - Between</SectionTitle>
+            </Column>
+          </Row>
+          <Row justify="between">
+            <Column xs={2}>
+              <Box>2</Box>
+            </Column>
+            <Column xs={1}>
+              <Box>1</Box>
+            </Column>
+            <Column xs={4}>
+              <Box>4</Box>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Horizontal Alignment - around</SectionTitle>
+            </Column>
+          </Row>
+          <Row justify="around">
+            <Column xs={2}>
+              <Box>2</Box>
+            </Column>
+            <Column xs={1}>
+              <Box>1</Box>
+            </Column>
+            <Column xs={4}>
+              <Box>4</Box>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Horizontal Alignment - even</SectionTitle>
+            </Column>
+          </Row>
+          <Row justify="even">
+            <Column xs={2}>
+              <Box>2</Box>
+            </Column>
+            <Column xs={1}>
+              <Box>1</Box>
+            </Column>
+            <Column xs={4}>
+              <Box>4</Box>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Vertical Alignment - top</SectionTitle>
+            </Column>
+          </Row>
+          <Row data-container align="top">
+            <Column xs={4}>
+              <Box data-box>4</Box>
+            </Column>
+            <Column xs={4}>
+              <Box data-box>4</Box>
+            </Column>
+            <Column xs={4}>
+              <Box data-box>4</Box>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Vertical Alignment - middle</SectionTitle>
+            </Column>
+          </Row>
+          <Row data-container align="middle">
+            <Column xs={4}>
+              <Box data-box>4</Box>
+            </Column>
+            <Column xs={4}>
+              <Box data-box>4</Box>
+            </Column>
+            <Column xs={4}>
+              <Box data-box>4</Box>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Vertical Alignment - bottom</SectionTitle>
+            </Column>
+          </Row>
+          <Row data-container align="bottom">
+            <Column xs={4}>
+              <Box data-box>4</Box>
+            </Column>
+            <Column xs={4}>
+              <Box data-box>4</Box>
+            </Column>
+            <Column xs={4}>
+              <Box data-box>4</Box>
+            </Column>
+          </Row>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Row>
+            <Column>
+              <SectionTitle>Vertical Alignment - stretch</SectionTitle>
+            </Column>
+          </Row>
+          <Row data-container align="stretch">
+            <Column xs={4}>
+              <Box data-box>4</Box>
+            </Column>
+            <Column xs={4}>
+              <Box data-box>4</Box>
+            </Column>
+            <Column xs={4}>
+              <Box data-box>4</Box>
             </Column>
           </Row>
         </Container>
