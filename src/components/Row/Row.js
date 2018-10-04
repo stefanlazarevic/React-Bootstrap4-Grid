@@ -26,6 +26,10 @@ const BaseRowStyle = styled.div`
   flex-wrap: wrap;
   margin-left: -15px;
   margin-right: -15px;
+
+  &.__reversed {
+    flex-direction: row-reverse;
+  }
 `;
 
 const StyledRow = styled(BaseRowStyle)`

@@ -236,7 +236,7 @@ const Index = props => {
             </Column>
           </Row>
           <Row reversed>
-            <Column reversed noGutter xs="auto">
+            <Column xs="auto">
               <Box>1</Box>
             </Column>
             <Column xs="auto">
